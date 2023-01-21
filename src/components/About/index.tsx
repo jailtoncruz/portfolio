@@ -1,5 +1,7 @@
 import Image from 'next/image';
-import ilustration from '../../../public/ilustration-dev.png';
+import initialAsset from '../../../public/asset-1.png';
+import { Link } from '../Link';
+import { Bold } from '../Bold';
 
 export default function About() {
   return <div id="about"
@@ -17,15 +19,17 @@ export default function About() {
       </h2>
       <blockquote className="mt-2">
         <p className="text-base text-white  max-[800px]:text-xs">
-          Desenvolvedor full-stack especializado em TypeScript (Front-end e Back-end) com experiencia real em DevOps com Docker, Nginx e plataformas de Cloud como Azure, Google Cloud e Oracle Cloud.
+          Desenvolvedor full-stack especializado em <Link href='https://www.typescriptlang.org/'><Bold>TypeScript</Bold></Link> (Front-end e Back-end)
+          com experiencia real em DevOps com <Link href='https://www.docker.com/'><Bold>Docker</Bold></Link>, <Link href='https://www.nginx.com/'><Bold>NGinx</Bold></Link> e plataformas de Cloud
+          como <Link href='https://azure.microsoft.com/pt-br/'><Bold>Azure</Bold></Link>, <Link href='https://cloud.google.com/'><Bold>Google Cloud</Bold></Link> e <Link href='https://www.oracle.com/br/cloud/'><Bold>Oracle Cloud</Bold></Link>.
         </p>
       </blockquote>
     </div>
 
     <div className="flex-1 flex flex-col justify-center items-end max-[800px]:justify-start">
       <Image
-        src={ilustration}
-        alt="Ilustração de desenvolvedor"
+        src={initialAsset}
+        alt="Computador com imagem escrito Desenvolvedor de software"
         className='w-auto max-[800px]:w-72'
       />
     </div>

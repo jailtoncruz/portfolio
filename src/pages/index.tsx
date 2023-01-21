@@ -5,7 +5,6 @@ import Contact from '@/components/Contact'
 import Showcase from '@/components/Showcase'
 import Blog from '@/components/Blog'
 
-
 export default function Home() {
   return (
     <>

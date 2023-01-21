@@ -1,15 +1,8 @@
 import Image from 'next/image';
 import me from '../../../public/me.jpeg';
 import { Mail, GitHub, Linkedin } from 'react-feather'
-
-type ReactProps = {
-  children: any
-}
-
-export function Bold({ children }: ReactProps) {
-  return <span className='font-bold text-white'>{children}</span>
-}
-
+import { Bold } from '../Bold';
+import { Link } from '../Link';
 export default function Contact() {
   return <div id="contact"
     className="section-bg px-4 m-4 flex flex-row  main-content
@@ -30,7 +23,7 @@ export default function Contact() {
         Jailton Cruz
       </h3>
       <div className='flex flex-row justify-between w-40'>
-        <a href="mailto:jailtoncruz01@gmail.com?subject=Contato_JailtonCruz">
+        <a href="mailto:jailtoncruz01@gmail.com?subject=ViSeuPortifolio">
           <Mail color='#FFF' className='cursor-pointer' />
         </a>
         <a href="https://github.com/jailtoncruz" target={'_blank'}>
@@ -51,7 +44,7 @@ export default function Contact() {
       </h2>
       <blockquote className="mt-2">
         <p className="text-base text-white  max-[800px]:text-xs my-4">
-          Me chamo Jailton Cruz sou bacharel em <Bold>Sistemas da Informação</Bold>,
+          Me chamo Jailton Cruz sou bacharel em <Link href='https://www.uninove.br/cursos/graduacao/presencial/sistemas-de-informacao'><Bold>Sistemas da Informação</Bold></Link>,
           programo a 5 anos em <Bold>TypeScript</Bold>,
           iniciei meus estudos com a stack <Bold>Java Spring Boot 3 + Angular 6</Bold> e
           depois mudei para a stack atual <Bold>NodeJS + ReactJS</Bold>.
