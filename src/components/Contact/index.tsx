@@ -23,15 +23,15 @@ export default function Contact() {
         Jailton Cruz
       </h3>
       <div className='flex flex-row justify-between w-40'>
-        <a href="mailto:jailtoncruz01@gmail.com?subject=ViSeuPortifolio">
+        <Link href='mailto:jailtoncruz01@gmail.com?subject=ViSeuPortifolio'>
           <Mail color='#FFF' className='cursor-pointer' />
-        </a>
-        <a href="https://github.com/jailtoncruz" target={'_blank'}>
+        </Link>
+        <Link href='https://github.com/jailtoncruz'>
           <GitHub color='#FFF' className='cursor-pointer' />
-        </a>
-        <a href="https://www.linkedin.com/in/jailtoncruz/" target={'_blank'}>
+        </Link>
+        <Link href='https://www.linkedin.com/in/jailtoncruz/'>
           <Linkedin color='#FFF' className='cursor-pointer' />
-        </a>
+        </Link>
       </div>
     </div>
 

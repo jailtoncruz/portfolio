@@ -5,5 +5,5 @@ interface LinkProps extends ReactProps {
 }
 
 export function Link({ children, href }: LinkProps) {
-  return <a href={href} target="_blank">{children}</a>
+  return <a href={href} target="_blank" rel="noreferrer">{children}</a>
 }
