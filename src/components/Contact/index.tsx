@@ -1,5 +1,5 @@
 import Image from 'next/image';
-import me from '../../../public/me.jpeg';
+import me from '../../../public/me.jpg';
 import { Mail, GitHub, Linkedin } from 'react-feather'
 import { Bold } from '../Bold';
 import { Link } from '../Link';
@@ -15,7 +15,7 @@ export default function Contact() {
           src={me}
           alt="Foto de perfil de Jailton Cruz"
           className='w-48 h-48
-          rounded-full'
+          rounded-full object-cover'
         />
       </div>
       <h3 className="font-bold text-xl text-white text-center my-6
