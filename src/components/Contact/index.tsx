@@ -44,13 +44,13 @@ export default function Contact() {
       </h2>
       <blockquote className="mt-2">
         <p className="text-base text-white  max-[800px]:text-xs my-4">
-          Me chamo Jailton Cruz sou bacharel em <Link href='https://www.uninove.br/cursos/graduacao/presencial/sistemas-de-informacao'><Bold>Sistemas da Informação</Bold></Link>,
-          programo a 5 anos em <Bold>TypeScript</Bold>,
+          Me chamo Jailton Cruz, sou bacharel em <Link href='https://www.uninove.br/cursos/graduacao/presencial/sistemas-de-informacao'><Bold>Sistemas da Informação</Bold></Link>,
+          programo há 5 anos em <Bold>TypeScript</Bold>,
           iniciei meus estudos com a stack <Bold>Java Spring Boot 3 + Angular 6</Bold> e
-          depois mudei para a stack atual <Bold>NodeJS + ReactJS</Bold>.
+          posteriormente migrei para a stack atual <Bold>NodeJS + ReactJS</Bold>.
         </p>
         <p className="text-base text-white  max-[800px]:text-xs">
-          Iniciei minha carreira como suporte técnico em 2013 e o inicio dos meus estudos eram voltados servidores (<Bold>Windows Server e Linux</Bold>) e infraestrutura
+          Iniciei minha carreira como suporte técnico em 2013. O inicio dos meus estudos eram voltados à servidores (<Bold>Windows Server e Linux</Bold>) e infraestrutura
           (<Bold>redes, armazenamento, virtualização, etc.</Bold>) e isso me deu uma base bem sólida para realizar tarefas de <Bold>DevOps</Bold>.
         </p>
       </blockquote>

@@ -9,8 +9,8 @@ export default function Home() {
   return (
     <>
       <Head>
-        <title>Jailton Cruz - Portifólio</title>
-        <meta name="description" content="Portifólio de Jailton Cruz" />
+        <title>Jailton Cruz - Portfólio</title>
+        <meta name="description" content="Portfólio de Jailton Cruz" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
