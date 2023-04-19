@@ -51,7 +51,7 @@ export default function Contact() {
         </p>
         <p className="text-base text-white  max-[800px]:text-xs">
           Iniciei minha carreira como suporte técnico em 2013. O inicio dos meus estudos eram voltados à servidores (<Bold>Windows Server e Linux</Bold>) e infraestrutura
-          (<Bold>redes, armazenamento, virtualização, etc.</Bold>) e isso me deu uma base bem sólida para realizar tarefas de <Bold>DevOps</Bold>.
+          (<Bold>redes, armazenamento, virtualização, etc.</Bold>) o que me levou a uma base sólida para realizar tarefas de <Bold>DevOps</Bold>.
         </p>
       </blockquote>
     </div>
