@@ -1,10 +1,13 @@
-import { Body, Controller, Get, Param, Post } from '@nestjs/common';
+import { Body, Controller, Get, Param, Post, Query } from '@nestjs/common';
 import { ProjectService } from './project.service';
 import { Project as ProjectModel } from '@prisma/client'
 import { HelperService } from '../../common/helpers/helper.service';
 import { CreateProjectDTO } from './interfaces/create-project-dto';
 import { ProjectDTO } from './interfaces/project.dto';
+import { ApiBearerAuth, ApiQuery } from '@nestjs/swagger';
+import { Public } from '../../common/decorators/public';
 
+@ApiBearerAuth()
 @Controller("project")
 export class ProjectController {
   constructor(
@@ -16,9 +19,18 @@ export class ProjectController {
     return this.service.project({ id });
   }
 
+  @ApiQuery({ name: 'page_size', required: false })
+  @ApiQuery({ name: 'page_number', required: false })
+  @Public()
   @Get()
-  findAll(): Promise<ProjectModel[]> {
-    return this.service.projects();
+  findAll(
+    @Query('page_size') pageSize: number = 10,
+    @Query('page_number') pageNumber: number = 0): Promise<ProjectModel[]> {
+
+    return this.service.projects({
+      take: Number(pageSize),
+      skip: Number(pageSize * pageNumber)
+    });
   }
 
   @Post()

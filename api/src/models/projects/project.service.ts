@@ -20,7 +20,7 @@ export class ProjectService {
     });
   }
 
-  async projects(params?: {
+  async projects(params: {
     skip?: number;
     take?: number;
     cursor?: Prisma.ProjectWhereUniqueInput;

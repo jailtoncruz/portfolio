@@ -40,3 +40,12 @@ model ProjectTags {
 
   @@map("project_tags")
 }
+
+model User {
+  id       String @id
+  name     String
+  username String @unique
+  password String
+
+  @@map("user")
+}
