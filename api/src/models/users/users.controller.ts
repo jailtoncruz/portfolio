@@ -14,7 +14,6 @@ export class UsersController {
     private helper: HelperService,
     private authService: AuthenticationService) { }
 
-  @Public()
   @Post('sign-up')
   async create(@Body() createUserDTO: CreateUserDTO) {
     const { name, password, username } = createUserDTO;
