@@ -1,9 +1,9 @@
-import { CanActivate, Injectable, UnauthorizedException, ExecutionContext } from '@nestjs/common';
-import { Reflector } from '@nestjs/core'
+import { CanActivate, ExecutionContext, Injectable, UnauthorizedException } from '@nestjs/common';
+import { Reflector } from '@nestjs/core';
 import { JwtService } from '@nestjs/jwt';
 import { Request } from 'express';
+import { IS_PUBLIC_KEY } from '../../common/decorators/public';
 import { jwtConstants } from './constants';
-import { IS_PUBLIC_KEY } from '../common/decorators/public';
 
 @Injectable()
 export class AuthenticationGuard implements CanActivate {
@@ -16,8 +16,6 @@ export class AuthenticationGuard implements CanActivate {
     ]);
 
     if (isPublic) return true;
-
-
 
     const request = context.switchToHttp().getRequest();
     const token = this.extractTokenFromHeader(request);

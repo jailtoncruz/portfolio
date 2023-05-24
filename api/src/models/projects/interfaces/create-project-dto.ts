@@ -16,6 +16,10 @@ export class CreateProjectDTO {
 
   @ApiProperty()
   @IsUrl()
+  cover_url?: string
+
+  @ApiProperty()
+  @IsUrl()
   app_url?: string
 
   @ApiProperty()

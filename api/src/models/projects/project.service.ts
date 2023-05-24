@@ -1,13 +1,18 @@
-import { Injectable } from '@nestjs/common';
-import { Project, Prisma } from '@prisma/client';
+import { Injectable, Logger } from '@nestjs/common';
+import { Prisma, Project } from '@prisma/client';
 import { HelperService } from '../../common/helpers/helper.service';
 import { PrismaService } from '../../lib/prisma.service';
 
 @Injectable()
 export class ProjectService {
+
   constructor(
     private prisma: PrismaService,
-    private helper: HelperService) { }
+    private helper: HelperService,
+    private logger: Logger
+  ) {
+    this.logger = new Logger('ProjectService')
+  }
 
   async project(
     userWhereUniqueInput: Prisma.ProjectWhereUniqueInput,
@@ -38,10 +43,14 @@ export class ProjectService {
   }
 
   async createProject(data: Prisma.ProjectCreateInput, include?: Prisma.ProjectInclude): Promise<Project> {
-    return this.prisma.project.create({
+    const project = await this.prisma.project.create({
       data,
       include
     });
+
+    this.logger.log(`Project created with ${project.tags.length} tags`)
+
+    return project
   }
 
   async updateProject(params: {

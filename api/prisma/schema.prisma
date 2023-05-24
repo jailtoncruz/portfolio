@@ -16,6 +16,7 @@ model Project {
   description    String?
   repository_url String?
   app_url        String?
+  cover_url      String?
   created_at     DateTime      @default(now())
   tags           ProjectTags[]
 

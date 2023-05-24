@@ -1,6 +1,6 @@
 import { Module } from '@nestjs/common';
 import { JwtModule } from '@nestjs/jwt';
-import { UsersModule } from '../models/users/users.module';
+import { UsersModule } from '../../models/users/users.module';
 import { AuthenticationController } from './authentication.controller';
 import { AuthenticationService } from './authentication.service';
 import { jwtConstants } from './constants';

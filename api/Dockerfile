@@ -1,6 +1,7 @@
 FROM node:18.16-alpine
 
 WORKDIR /app
+ENV NODE_ENV=production
 
 COPY dist/ .
 COPY package*.json .

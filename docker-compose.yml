@@ -10,3 +10,5 @@ services:
       - '3000:3000'
     env_file:
       - api/.env
+    volumes:
+      - /mnt/fs-core/apps/portfolio:/app/workdir

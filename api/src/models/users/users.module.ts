@@ -1,10 +1,10 @@
 import { Module } from '@nestjs/common';
 import { ConfigModule } from '@nestjs/config';
-import { UsersService } from './users.service';
-import { PrismaService } from '../../lib/prisma.service';
-import { UsersController } from './users.controller';
 import { HelperService } from '../../common/helpers/helper.service';
-import { AuthenticationService } from '../../authentication/authentication.service';
+import { PrismaService } from '../../lib/prisma.service';
+import { AuthenticationService } from '../../modules/authentication/authentication.service';
+import { UsersController } from './users.controller';
+import { UsersService } from './users.service';
 
 @Module({
   imports: [ConfigModule],

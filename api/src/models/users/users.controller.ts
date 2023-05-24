@@ -1,10 +1,9 @@
 import { Body, Controller, Post } from '@nestjs/common';
+import { ApiBearerAuth } from '@nestjs/swagger';
+import { HelperService } from '../../common/helpers/helper.service';
+import { AuthenticationService } from '../../modules/authentication/authentication.service';
 import { CreateUserDTO } from './interfaces/create-user-dto';
 import { UsersService } from './users.service';
-import { HelperService } from '../../common/helpers/helper.service';
-import { Public } from '../../common/decorators/public';
-import { AuthenticationService } from '../../authentication/authentication.service';
-import { ApiBearerAuth } from '@nestjs/swagger';
 
 @ApiBearerAuth()
 @Controller('users')

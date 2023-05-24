@@ -1,11 +1,10 @@
 import { Body, Controller, Get, Param, Post, Query } from '@nestjs/common';
-import { ProjectService } from './project.service';
-import { Project as ProjectModel } from '@prisma/client'
+import { ApiBearerAuth, ApiQuery } from '@nestjs/swagger';
+import { Project as ProjectModel } from '@prisma/client';
+import { Public } from '../../common/decorators/public';
 import { HelperService } from '../../common/helpers/helper.service';
 import { CreateProjectDTO } from './interfaces/create-project-dto';
-import { ProjectDTO } from './interfaces/project.dto';
-import { ApiBearerAuth, ApiQuery } from '@nestjs/swagger';
-import { Public } from '../../common/decorators/public';
+import { ProjectService } from './project.service';
 
 @ApiBearerAuth()
 @Controller("project")
@@ -34,7 +33,7 @@ export class ProjectController {
   }
 
   @Post()
-  async createProject(@Body() data: CreateProjectDTO): Promise<ProjectDTO> {
+  async createProject(@Body() data: CreateProjectDTO) {
     const tags = data.tags;
     delete data.tags;
 
@@ -67,6 +66,6 @@ export class ProjectController {
     });
 
 
-    return project as ProjectDTO;
+    return project;
   }
 }
