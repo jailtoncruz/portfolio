@@ -2,7 +2,6 @@ import { ApiProperty } from '@nestjs/swagger';
 import { IsNotEmpty, IsUrl } from 'class-validator';
 
 export class CreateProjectDTO {
-
   @ApiProperty()
   @IsNotEmpty()
   name: string

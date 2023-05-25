@@ -1,4 +1,6 @@
-export class ProjectDTO {
+import { Project } from '@prisma/client';
+
+export interface ProjectTagsDTO extends Project {
   id: string;
   name: string;
   description: string | null;
@@ -14,4 +16,9 @@ export class ProjectDTO {
       name: string
     }
   }
+}
+
+
+export interface ProjectDTO extends Project {
+  tags: string[]
 }

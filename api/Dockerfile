@@ -8,6 +8,6 @@ COPY package*.json ./
 COPY yarn.lock ./
 COPY prisma ./
 
-RUN yarn install --production
+RUN npm install --omit-dev
 
 CMD node main.js

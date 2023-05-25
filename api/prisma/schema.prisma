@@ -39,6 +39,7 @@ model ProjectTags {
   project Project @relation(fields: [project_id], references: [id])
   tag     Tag     @relation(fields: [tag_id], references: [id])
 
+  @@unique([project_id, tag_id])
   @@map("project_tags")
 }
 
