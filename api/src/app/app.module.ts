@@ -1,4 +1,4 @@
-import { Module } from '@nestjs/common';
+import { Logger, Module } from '@nestjs/common';
 import { ConfigModule } from '@nestjs/config';
 import { APP_GUARD } from '@nestjs/core';
 import { ServeStaticModule } from '@nestjs/serve-static';
@@ -11,18 +11,19 @@ import { AppController } from './app.controller';
 import { AppService } from './app.service';
 
 @Module({
-  imports: [ConfigModule.forRoot({
-    isGlobal: true,
-  }),
-  ServeStaticModule.forRoot({
-    rootPath: resolve(process.cwd(), 'workdir', 'uploads'),
-    serveRoot: '/files'
-  }),
-    ProjectModule, AuthenticationModule, FileModule],
+  imports: [AuthenticationModule,
+    ConfigModule.forRoot({
+      isGlobal: true,
+    }),
+    ServeStaticModule.forRoot({
+      rootPath: resolve(process.cwd(), 'workdir', 'uploads'),
+      serveRoot: '/files'
+    }),
+    ProjectModule, FileModule],
   controllers: [AppController],
   providers: [AppService, {
     provide: APP_GUARD,
     useClass: AuthenticationGuard
-  }],
+  }, Logger],
 })
 export class AppModule { }

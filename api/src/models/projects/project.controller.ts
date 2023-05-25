@@ -44,7 +44,7 @@ export class ProjectController {
   }
 
   @Post()
-  async createProject(@Body() data: CreateProjectDTO) {
+  async createProject(@Body() data: CreateProjectDTO): Promise<ProjectDTO> {
     const tags = data.tags;
     delete data.tags;
 
@@ -77,7 +77,7 @@ export class ProjectController {
     });
 
 
-    return project;
+    return { ...project, tags };
   }
 
   @Put(":id")
