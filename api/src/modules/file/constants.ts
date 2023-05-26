@@ -1,5 +1,5 @@
-import { resolve } from "path";
+import { resolve } from 'path';
 
 export const fileModuleConstants = {
-  dir: resolve(process.cwd(), 'workdir', 'uploads')
-}
+  dir: resolve(process.cwd(), 'workdir', 'uploads'),
+};

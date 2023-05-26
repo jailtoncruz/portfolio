@@ -11,7 +11,8 @@ export class UsersController {
   constructor(
     private service: UsersService,
     private helper: HelperService,
-    private authService: AuthenticationService) { }
+    private authService: AuthenticationService,
+  ) {}
 
   @Post('sign-up')
   async create(@Body() createUserDTO: CreateUserDTO) {
@@ -19,13 +20,13 @@ export class UsersController {
 
     const user = await this.service.create({
       id: this.helper.getID(),
-      name, username,
-      password: await this.service.hashPassword(password)
+      name,
+      username,
+      password: await this.service.hashPassword(password),
     });
 
     delete user.password;
     const access = await this.authService.signIn(username, password);
-
 
     return { ...user, access };
   }

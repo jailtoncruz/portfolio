@@ -4,23 +4,23 @@ import { IsNotEmpty, IsUrl } from 'class-validator';
 export class CreateProjectDTO {
   @ApiProperty()
   @IsNotEmpty()
-  name: string
+  name: string;
 
   @ApiProperty()
-  description?: string
-
-  @ApiProperty()
-  @IsUrl()
-  repository_url?: string
+  description?: string;
 
   @ApiProperty()
   @IsUrl()
-  cover_url?: string
+  repository_url?: string;
 
   @ApiProperty()
   @IsUrl()
-  app_url?: string
+  cover_url?: string;
 
   @ApiProperty()
-  tags?: string[]
+  @IsUrl()
+  app_url?: string;
+
+  @ApiProperty()
+  tags?: string[];
 }

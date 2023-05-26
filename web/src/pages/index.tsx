@@ -1,9 +1,16 @@
-import Head from 'next/head'
-import Header from '@/components/Header'
 import About from '@/components/About'
-import Contact from '@/components/Contact'
-import Showcase from '@/components/Showcase'
 import Blog from '@/components/Blog'
+import Contact from '@/components/Contact'
+import Header from '@/components/Header'
+import Showcase from '@/components/Showcase'
+import Head from 'next/head'
+
+import { Poppins } from '@next/font/google'
+const poppins = Poppins({
+  subsets: ['latin'],
+  weight: ['400', '500', '700']
+})
+
 
 export default function Home() {
   return (
@@ -15,7 +22,7 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <Header />
-      <main id="content">
+      <main id="content" className={poppins.className}>
         <About />
         <Contact />
         <Showcase />

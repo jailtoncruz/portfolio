@@ -11,19 +11,26 @@ import { AppController } from './app.controller';
 import { AppService } from './app.service';
 
 @Module({
-  imports: [AuthenticationModule,
+  imports: [
+    AuthenticationModule,
     ConfigModule.forRoot({
       isGlobal: true,
     }),
     ServeStaticModule.forRoot({
       rootPath: resolve(process.cwd(), 'workdir', 'uploads'),
-      serveRoot: '/files'
+      serveRoot: '/files',
     }),
-    ProjectModule, FileModule],
+    ProjectModule,
+    FileModule,
+  ],
   controllers: [AppController],
-  providers: [AppService, {
-    provide: APP_GUARD,
-    useClass: AuthenticationGuard
-  }, Logger],
+  providers: [
+    AppService,
+    {
+      provide: APP_GUARD,
+      useClass: AuthenticationGuard,
+    },
+    Logger,
+  ],
 })
-export class AppModule { }
+export class AppModule {}

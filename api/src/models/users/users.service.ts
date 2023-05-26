@@ -7,25 +7,24 @@ import { PrismaService } from '../../lib/prisma.service';
 
 @Injectable()
 export class UsersService {
-
   constructor(
     private prisma: PrismaService,
     private helperService: HelperService,
-    private configService: ConfigService) {
-  }
+    private configService: ConfigService,
+  ) {}
 
   findByUsername(username: string): Promise<User> {
     return this.prisma.user.findUnique({
       where: {
-        username
-      }
-    })
+        username,
+      },
+    });
   }
 
   create(data: User): Promise<User> {
     return this.prisma.user.create({
-      data
-    })
+      data,
+    });
   }
 
   async hashPassword(password: string): Promise<string> {
@@ -37,6 +36,6 @@ export class UsersService {
   }
 
   async comparePassword(password: string, hash: string): Promise<boolean> {
-    return bcrypt.compare(password, hash)
+    return bcrypt.compare(password, hash);
   }
 }

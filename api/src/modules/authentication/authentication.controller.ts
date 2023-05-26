@@ -5,12 +5,12 @@ import { SignInDTO } from './interfaces/signin-dto';
 
 @Controller('auth')
 export class AuthenticationController {
-  constructor(private authService: AuthenticationService) { }
+  constructor(private authService: AuthenticationService) {}
 
   @Public()
   @HttpCode(HttpStatus.OK)
   @Post('login')
   signIn(@Body() signInDto: SignInDTO) {
-    return this.authService.signIn(signInDto.username, signInDto.password)
+    return this.authService.signIn(signInDto.username, signInDto.password);
   }
 }

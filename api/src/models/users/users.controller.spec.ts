@@ -16,12 +16,20 @@ describe('UsersController', () => {
   beforeEach(async () => {
     const module: TestingModule = await Test.createTestingModule({
       controllers: [UsersController],
-      providers: [UsersService, PrismaService, HelperService, AuthenticationService],
-      imports: [ConfigModule, JwtModule.register({
-        global: true,
-        secret: jwtConstants.secret,
-        signOptions: { expiresIn: '60s' }
-      })]
+      providers: [
+        UsersService,
+        PrismaService,
+        HelperService,
+        AuthenticationService,
+      ],
+      imports: [
+        ConfigModule,
+        JwtModule.register({
+          global: true,
+          secret: jwtConstants.secret,
+          signOptions: { expiresIn: '60s' },
+        }),
+      ],
     }).compile();
 
     controller = module.get<UsersController>(UsersController);
@@ -32,16 +40,15 @@ describe('UsersController', () => {
     expect(controller).toBeDefined();
   });
 
-
   it('should be create new user', async () => {
     const user = await controller.create({
       name: 'User test',
       password: helper.randomString(32),
-      username: 'testing_user@tomcruz.dev'
-    })
+      username: 'testing_user@tomcruz.dev',
+    });
 
     expect(user).toBeDefined();
-    expect(user).toHaveProperty('access')
-    expect(user).toHaveProperty('id')
+    expect(user).toHaveProperty('access');
+    expect(user).toHaveProperty('id');
   });
 });

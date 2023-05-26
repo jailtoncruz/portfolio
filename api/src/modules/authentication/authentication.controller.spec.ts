@@ -12,11 +12,14 @@ describe('AuthenticationController', () => {
     const module: TestingModule = await Test.createTestingModule({
       controllers: [AuthenticationController],
       providers: [AuthenticationService],
-      imports: [UsersModule, JwtModule.register({
-        global: true,
-        secret: jwtConstants.secret,
-        signOptions: { expiresIn: '60s' }
-      })]
+      imports: [
+        UsersModule,
+        JwtModule.register({
+          global: true,
+          secret: jwtConstants.secret,
+          signOptions: { expiresIn: '60s' },
+        }),
+      ],
     }).compile();
 
     controller = module.get<AuthenticationController>(AuthenticationController);

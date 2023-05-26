@@ -19,8 +19,13 @@ async function bootstrap() {
 
   app.useGlobalPipes(new ValidationPipe());
   app.use(helmet());
+
+  const domains = ['tomcruz.dev'];
+  if (process.env.NODE_ENV !== 'production')
+    domains.push('http://localhost:3001');
+
   app.enableCors({
-    origin: 'tomcruz.dev'
+    origin: domains,
   });
 
   await app.listen(3000);

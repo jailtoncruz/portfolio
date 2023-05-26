@@ -1,13 +1,15 @@
-import { ShowcaseItem } from "@/core/domain/ShowcaseItem";
+'use client'
+
+import { Project } from "@/core/domain/Project";
 import { useState } from "react";
 import { ChevronLeft, ChevronRight } from 'react-feather';
 
 interface CarouselParams {
-  data: ShowcaseItem[];
+  data: Project[]
 }
 
 export function Carousel({ data }: CarouselParams) {
-  const [current, setCurrent] = useState<ShowcaseItem>(data[0]);
+  const [current, setCurrent] = useState<Project>(data[0]);
 
   function getNext() {
     return data.indexOf(current) === data.length - 1 ? data[0] : data[data.indexOf(current) + 1];
@@ -27,7 +29,7 @@ export function Carousel({ data }: CarouselParams) {
       flex items-center p-2"
       style={{
         minWidth: '15%',
-        backgroundImage: `url(${lastItem.thumbnail})`
+        backgroundImage: `url(${lastItem?.cover_url})`
       }}>
       <ChevronLeft size={32}
         className="text-gray-800 cursor-pointer hover:scale-110 transition"
@@ -35,28 +37,25 @@ export function Carousel({ data }: CarouselParams) {
       />
     </div>
 
-
     <div
       id="atual"
       className="grow  rounded-lg bg-no-repeat bg-cover shadow-lg flex flex-col justify-end cursor-pointer"
       style={{
-        backgroundImage: `url(${current.thumbnail})`
-      }} onClick={() => window.open(current.url, "_blank")}>
+        backgroundImage: `url(${current?.cover_url})`
+      }} onClick={() => window.open(current.app_url ?? current.repository_url, "_blank")}>
       <div className=" bg-opacity-70 bg-white flex items-center justify-center flex-col shadow-sm shadow-black py-1
       rounded-b-lg">
-        <h1 className="font-medium uppercase text-gray-700 select-none">{current.title}</h1>
-        <h2 className="text-xs text-gray-600 mx-2 select-none">{current.description}</h2>
+        <h1 className="font-medium uppercase text-gray-700 select-none">{current?.name}</h1>
+        <h2 className="text-xs text-gray-600 mx-2 select-none">{current?.description}</h2>
       </div>
-
     </div>
 
-
     <div id="preview-next"
-      className="  my-8 grow-0 rounded-r-lg bg-right bg-no-repeat bg-cover shadow-lg opacity-80
+      className="my-8 grow-0 rounded-r-lg bg-right bg-no-repeat bg-cover shadow-lg opacity-80
       flex items-center p-2 justify-end"
       style={{
         minWidth: '15%',
-        backgroundImage: `url(${nextItem.thumbnail})`
+        backgroundImage: `url(${nextItem?.cover_url})`
       }}>
       <ChevronRight
         size={32}

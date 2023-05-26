@@ -17,8 +17,10 @@ export class HelperService {
   }
 
   getAPIUrl(req: Request) {
-    const { protocol, hostname } = req
+    const { protocol, hostname } = req;
 
-    return `${protocol}://${hostname}${process.env.NODE_ENV === 'production' ? '' : ':3000'}`
+    return `${protocol}://${hostname}${
+      process.env.NODE_ENV === 'production' ? '' : ':3000'
+    }`;
   }
 }

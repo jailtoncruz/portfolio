@@ -6,13 +6,12 @@ import { ProjectDTO } from './interfaces/project-dto';
 
 @Injectable()
 export class ProjectService {
-
   constructor(
     private prisma: PrismaService,
     private helper: HelperService,
-    private logger: Logger
+    private logger: Logger,
   ) {
-    this.logger = new Logger('ProjectService')
+    this.logger = new Logger('ProjectService');
   }
 
   async project(
@@ -23,13 +22,13 @@ export class ProjectService {
       include: {
         tags: {
           include: {
-            tag: true
-          }
-        }
-      }
+            tag: true,
+          },
+        },
+      },
     });
 
-    return { ...project, tags: project.tags.map(tag => tag.tag.name) }
+    return { ...project, tags: project.tags.map((tag) => tag.tag.name) };
   }
 
   async projects(params: {
@@ -49,24 +48,27 @@ export class ProjectService {
       include: {
         tags: {
           include: {
-            tag: true
-          }
-        }
-      }
+            tag: true,
+          },
+        },
+      },
     });
 
-    return projects
+    return projects;
   }
 
-  async createProject(data: Prisma.ProjectCreateInput, include?: Prisma.ProjectInclude): Promise<Project> {
+  async createProject(
+    data: Prisma.ProjectCreateInput,
+    include?: Prisma.ProjectInclude,
+  ): Promise<Project> {
     const project = await this.prisma.project.create({
       data,
-      include
+      include,
     });
 
-    this.logger.log(`Project created with ${project.tags.length} tags`)
+    this.logger.log(`Project created with ${project.tags.length} tags`);
 
-    return project
+    return project;
   }
 
   async updateProject(params: {
@@ -85,11 +87,10 @@ export class ProjectService {
       where: {
         project_id: project.id,
         tag_id: {
-          in: tags.map(tag => tag.id)
-        }
-      }
-    })
-
+          in: tags.map((tag) => tag.id),
+        },
+      },
+    });
   }
 
   async deleteUser(where: Prisma.ProjectWhereUniqueInput): Promise<Project> {
@@ -102,9 +103,9 @@ export class ProjectService {
     return this.prisma.tag.findMany({
       where: {
         name: {
-          in: tags
-        }
-      }
-    })
+          in: tags,
+        },
+      },
+    });
   }
 }

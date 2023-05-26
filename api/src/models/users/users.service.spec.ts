@@ -18,12 +18,20 @@ describe('UsersService', () => {
 
   beforeEach(async () => {
     const module: TestingModule = await Test.createTestingModule({
-      providers: [UsersService, PrismaService, HelperService, AuthenticationService],
-      imports: [ConfigModule, JwtModule.register({
-        global: true,
-        secret: jwtConstants.secret,
-        signOptions: { expiresIn: '60s' }
-      })]
+      providers: [
+        UsersService,
+        PrismaService,
+        HelperService,
+        AuthenticationService,
+      ],
+      imports: [
+        ConfigModule,
+        JwtModule.register({
+          global: true,
+          secret: jwtConstants.secret,
+          signOptions: { expiresIn: '60s' },
+        }),
+      ],
     }).compile();
 
     service = module.get<UsersService>(UsersService);
@@ -37,14 +45,14 @@ describe('UsersService', () => {
         id: helper.getID(),
         name: 'Test User',
         username: 'testing_user',
-        password: uid()
-      }
-    })
-  })
+        password: uid(),
+      },
+    });
+  });
 
   afterAll(async () => {
     await prisma.user.deleteMany();
-  })
+  });
 
   it('should be defined', () => {
     expect(service).toBeDefined();
@@ -52,10 +60,12 @@ describe('UsersService', () => {
 
   it('should be find user', async () => {
     await expect(service.findByUsername('')).resolves.toBeNull();
-    await expect(service.findByUsername(user.username)).resolves.toBeDefined()
-    await expect(service.findByUsername(user.username)).resolves.toHaveProperty('name', user.name);
+    await expect(service.findByUsername(user.username)).resolves.toBeDefined();
+    await expect(service.findByUsername(user.username)).resolves.toHaveProperty(
+      'name',
+      user.name,
+    );
   });
-
 
   it('should be hash password and compare hash with password', async () => {
     const password = helper.randomString(32);
