@@ -20,7 +20,7 @@ async function bootstrap() {
   app.useGlobalPipes(new ValidationPipe());
   app.use(helmet());
 
-  const domains = ['tomcruz.dev'];
+  const domains = ['https://tomcruz.dev'];
   if (process.env.NODE_ENV !== 'production')
     domains.push('http://localhost:3001');
 
