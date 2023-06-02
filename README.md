@@ -1,6 +1,6 @@
 <p align="center">
-<a href="https://codeclimate.com/github/jailtoncruz/portifolio/maintainability"><img src="https://api.codeclimate.com/v1/badges/ce348036b11f73e5c799/maintainability" /></a>
-<a href="https://codeclimate.com/github/jailtoncruz/portifolio/test_coverage"><img src="https://api.codeclimate.com/v1/badges/ce348036b11f73e5c799/test_coverage" /></a>
+<a href="https://codeclimate.com/github/jailtoncruz/portfolio/maintainability"><img src="https://api.codeclimate.com/v1/badges/82c206ec0c1e6c461276/maintainability" /></a>
+<a href="https://codeclimate.com/github/jailtoncruz/portfolio/test_coverage"><img src="https://api.codeclimate.com/v1/badges/82c206ec0c1e6c461276/test_coverage" /></a>
 </p>
 
 # Portfolio Jailton Cruz
