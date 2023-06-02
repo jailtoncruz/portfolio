@@ -3,28 +3,28 @@ component: build
 
 steps:
   - type: Command
-    name: Change context to api
+    name: change-context-to-api
     failImmediatelyOnError: true
     command: cd api
 
   - type: Command
-    name: Install dependencies
+    name: install-dependencies
     failImmediatelyOnError: true
     command: npm install
 
   - type: Command
-    name: Run tests
+    name: run-tests
     command: npm run test
 
   - type: Command
-    name: Generate NestJS build
+    name: generate-nestjs-build
     command: npm run build
 
   - type: Command
-    name: Build docker image
+    name: build-docker-image
     command: docker build -t sa-saopaulo-1.ocir.io/grbcvhus1oua/portfolio/api .
 
 outputArtifacts:
-  - name: API Docker image
+  - name: api-docker-image
     type: DOCKER_IMAGE
     location: sa-saopaulo-1.ocir.io/grbcvhus1oua/portfolio/api
