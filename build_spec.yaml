@@ -1,0 +1,30 @@
+version: 0.1
+component: build
+
+steps:
+  - type: Command
+    name: Change context to api
+    failImmediatelyOnError: true
+    command: cd api
+
+  - type: Command
+    name: Install dependencies
+    failImmediatelyOnError: true
+    command: npm install
+
+  - type: Command
+    name: Run tests
+    command: npm run test
+
+  - type: Command
+    name: Generate NestJS build
+    command: npm run build
+
+  - type: Command
+    name: Build docker image
+    command: docker build -t sa-saopaulo-1.ocir.io/grbcvhus1oua/portfolio/api .
+
+outputArtifacts:
+  - name: API Docker image
+    type: DOCKER_IMAGE
+    location: sa-saopaulo-1.ocir.io/grbcvhus1oua/portfolio/api

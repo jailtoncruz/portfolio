@@ -1,14 +1,14 @@
-import { Test, TestingModule } from '@nestjs/testing';
 import { ConfigModule } from '@nestjs/config';
-import ShortUniqueId from 'short-unique-id';
+import { Test, TestingModule } from '@nestjs/testing';
 import { User } from '@prisma/client';
+import ShortUniqueId from 'short-unique-id';
 
-import { UsersService } from './users.service';
-import { PrismaService } from '../../lib/prisma.service';
-import { HelperService } from '../../common/helpers/helper.service';
-import { AuthenticationService } from '../../authentication/authentication.service';
 import { JwtModule } from '@nestjs/jwt';
-import { jwtConstants } from '../../authentication/constants';
+import { HelperService } from '../../common/helpers/helper.service';
+import environment from '../../core/environments';
+import { PrismaService } from '../../lib/prisma.service';
+import { AuthenticationService } from '../../modules/authentication/authentication.service';
+import { UsersService } from './users.service';
 
 describe('UsersService', () => {
   const prisma = new PrismaService();
@@ -28,7 +28,7 @@ describe('UsersService', () => {
         ConfigModule,
         JwtModule.register({
           global: true,
-          secret: jwtConstants.secret,
+          secret: environment.JWT_SECRET,
           signOptions: { expiresIn: '60s' },
         }),
       ],

@@ -1,9 +1,9 @@
+import { JwtModule } from '@nestjs/jwt';
 import { Test, TestingModule } from '@nestjs/testing';
+import environment from '../../core/environments';
+import { UsersModule } from '../../models/users/users.module';
 import { AuthenticationController } from './authentication.controller';
 import { AuthenticationService } from './authentication.service';
-import { UsersModule } from '../models/users/users.module';
-import { jwtConstants } from './constants';
-import { JwtModule } from '@nestjs/jwt';
 
 describe('AuthenticationController', () => {
   let controller: AuthenticationController;
@@ -16,7 +16,7 @@ describe('AuthenticationController', () => {
         UsersModule,
         JwtModule.register({
           global: true,
-          secret: jwtConstants.secret,
+          secret: environment.JWT_SECRET,
           signOptions: { expiresIn: '60s' },
         }),
       ],

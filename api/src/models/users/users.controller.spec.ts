@@ -1,13 +1,13 @@
-import { Test, TestingModule } from '@nestjs/testing';
 import { ConfigModule } from '@nestjs/config';
+import { Test, TestingModule } from '@nestjs/testing';
 
+import { JwtModule } from '@nestjs/jwt';
+import { HelperService } from '../../common/helpers/helper.service';
+import environment from '../../core/environments';
+import { PrismaService } from '../../lib/prisma.service';
+import { AuthenticationService } from '../../modules/authentication/authentication.service';
 import { UsersController } from './users.controller';
 import { UsersService } from './users.service';
-import { HelperService } from '../../common/helpers/helper.service';
-import { PrismaService } from '../../lib/prisma.service';
-import { AuthenticationService } from '../../authentication/authentication.service';
-import { JwtModule } from '@nestjs/jwt';
-import { jwtConstants } from '../../authentication/constants';
 
 describe('UsersController', () => {
   let controller: UsersController;
@@ -26,7 +26,7 @@ describe('UsersController', () => {
         ConfigModule,
         JwtModule.register({
           global: true,
-          secret: jwtConstants.secret,
+          secret: environment.JWT_SECRET,
           signOptions: { expiresIn: '60s' },
         }),
       ],

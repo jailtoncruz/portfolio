@@ -1,3 +1,4 @@
+import { Logger } from '@nestjs/common';
 import { Test, TestingModule } from '@nestjs/testing';
 import { HelperService } from '../../common/helpers/helper.service';
 import { PrismaService } from '../../lib/prisma.service';
@@ -10,7 +11,7 @@ describe('ProjectController', () => {
   beforeEach(async () => {
     const app: TestingModule = await Test.createTestingModule({
       controllers: [ProjectController],
-      providers: [ProjectService, HelperService, PrismaService],
+      providers: [ProjectService, HelperService, PrismaService, Logger],
     }).compile();
 
     projectController = app.get<ProjectController>(ProjectController);
