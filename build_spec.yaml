@@ -1,11 +1,15 @@
 version: 0.1
 component: build
 
+env:
+  vaultVariables:
+    github_secret : ocid1.vaultsecret.oc1.sa-saopaulo-1.amaaaaaanfeltwyaot7h4tpsamfr2p7r4xilmanw2penqdgdoh63m272m6dq
+
 steps:
   - type: Command
-    name: change-context-to-api
+    name: "Login Github"
     failImmediatelyOnError: true
-    command: cd api
+    command: ${github_secret} > npm login --scope=@jailtoncruz --auth-type=legacy --registry=https://npm.pkg.github.com
 
   - type: Command
     name: install-dependencies
