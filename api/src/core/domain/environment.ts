@@ -20,7 +20,9 @@ export class ProjectEnvironment {
       }
     }
 
-    this.loadVaultEnv()
+    this.loadVaultEnv();
+
+    console.log("Loaded envs", this)
   }
 
   private async loadVaultEnv() {
