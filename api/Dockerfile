@@ -7,7 +7,8 @@ COPY dist ./dist
 COPY package.json ./
 COPY prisma ./
 COPY .npmrc .npmrc
-RUN npm install -g npm
+
+RUN npm install -g npm node-gyp
 RUN npm install --omit-dev
 RUN rm .npmrc
 
