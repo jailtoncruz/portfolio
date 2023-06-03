@@ -14,7 +14,7 @@ steps:
     failImmediatelyOnError: true
     command: |
       printf "//npm.pkg.github.com/:_authToken=${GITHUB_SECRET}" > ~/.npmrc
-      cp ~/.npmrc .
+      cp ~/.npmrc api/.
 
   - type: Command
     name: "Install dependencies"
