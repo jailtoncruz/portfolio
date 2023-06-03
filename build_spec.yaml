@@ -10,7 +10,7 @@ steps:
   - type: Command
     name: install-dependencies
     failImmediatelyOnError: true
-    command: npm install
+    command: cd api && npm install
 
   - type: Command
     name: run-tests
