@@ -9,23 +9,23 @@ steps:
   - type: Command
     name: "Login Github"
     failImmediatelyOnError: true
-    command: ${github_secret} > npm login --scope=@jailtoncruz --auth-type=legacy --registry=https://npm.pkg.github.com
+    command: echo "//npm.pkg.github.com/:_authToken=${github_secret}\n@jailtoncruz:registry=https://npm.pkg.github.com/" > ~/.npmrc
 
   - type: Command
-    name: install-dependencies
+    name: "Install dependencies"
     failImmediatelyOnError: true
     command: cd api && npm install
 
   - type: Command
-    name: run-tests
+    name: "Run test suits"
     command: npm run test
 
   - type: Command
-    name: generate-nestjs-build
+    name: "Generate NestJS build"
     command: npm run build
 
   - type: Command
-    name: build-docker-image
+    name: "Build docker image"
     command: docker build -t sa-saopaulo-1.ocir.io/grbcvhus1oua/portfolio/api .
 
 outputArtifacts:
