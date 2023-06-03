@@ -12,20 +12,28 @@ steps:
     command: echo "//npm.pkg.github.com/:_authToken=${github_secret}\n@jailtoncruz:registry=https://npm.pkg.github.com/" > ~/.npmrc
 
   - type: Command
+    name: "Inspect file npmrc"
+    failImmediatelyOnError: true
+    command: cat ~/.npmrc
+
+  - type: Command
     name: "Install dependencies"
     failImmediatelyOnError: true
     command: cd api && npm install
 
   - type: Command
     name: "Run test suits"
+    failImmediatelyOnError: true
     command: npm run test
 
   - type: Command
     name: "Generate NestJS build"
+    failImmediatelyOnError: true
     command: npm run build
 
   - type: Command
     name: "Build docker image"
+    failImmediatelyOnError: true
     command: docker build -t sa-saopaulo-1.ocir.io/grbcvhus1oua/portfolio/api .
 
 outputArtifacts:
