@@ -9,12 +9,7 @@ steps:
   - type: Command
     name: "Login Github"
     failImmediatelyOnError: true
-    command: echo "//npm.pkg.github.com/:_authToken=${github_secret}\n@jailtoncruz:registry=https://npm.pkg.github.com/" > ~/.npmrc
-
-  - type: Command
-    name: "Inspect file npmrc"
-    failImmediatelyOnError: true
-    command: cat ~/.npmrc
+    command: echo "//npm.pkg.github.com/:_authToken=${github_secret}" > ~/.npmrc
 
   - type: Command
     name: "Install dependencies"
