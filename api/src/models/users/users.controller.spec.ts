@@ -2,6 +2,7 @@ import { ConfigModule } from '@nestjs/config';
 import { Test, TestingModule } from '@nestjs/testing';
 
 import { JwtModule } from '@nestjs/jwt';
+import { randomUUID } from 'crypto';
 import { HelperService } from '../../common/helpers/helper.service';
 import environment from '../../core/environments';
 import { PrismaService } from '../../lib/prisma.service';
@@ -44,7 +45,7 @@ describe('UsersController', () => {
     const user = await controller.create({
       name: 'User test',
       password: helper.randomString(32),
-      username: 'testing_user@tomcruz.dev',
+      username: `${randomUUID()}@tomcruz.dev`,
     });
 
     expect(user).toBeDefined();

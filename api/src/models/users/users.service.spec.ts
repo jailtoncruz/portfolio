@@ -4,6 +4,7 @@ import { User } from '@prisma/client';
 import ShortUniqueId from 'short-unique-id';
 
 import { JwtModule } from '@nestjs/jwt';
+import { randomUUID } from 'crypto';
 import { HelperService } from '../../common/helpers/helper.service';
 import environment from '../../core/environments';
 import { PrismaService } from '../../lib/prisma.service';
@@ -44,7 +45,7 @@ describe('UsersService', () => {
       data: {
         id: helper.getID(),
         name: 'Test User',
-        username: 'testing_user',
+        username: `${randomUUID()}@tomcruz.dev`,
         password: uid(),
       },
     });
