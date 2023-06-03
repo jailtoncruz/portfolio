@@ -26,6 +26,11 @@ steps:
       printf "JWT_SECRET=${TEST_JWT_SECRET}\nDATABASE_URL=${TEST_DATABASE_URL}\n" > api/.env.test
 
   - type: Command
+    name: "Inspect env files"
+    failImmediatelyOnError: true
+    command: cat api/.env.test
+
+  - type: Command
     name: "Run test suits"
     failImmediatelyOnError: true
     command: cd api && npm run test
