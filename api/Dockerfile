@@ -4,7 +4,7 @@ WORKDIR /app
 ENV NODE_ENV=production
 
 COPY dist ./dist
-COPY package*.json ./
+COPY package.json ./
 COPY prisma ./
 COPY .npmrc .npmrc
 
