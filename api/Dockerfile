@@ -6,7 +6,9 @@ ENV NODE_ENV=production
 COPY dist ./dist
 COPY package*.json ./
 COPY prisma ./
+COPY .npmrc .npmrc
 
 RUN npm install --omit-dev
+RUN rm .npmrc
 
 CMD ["npm", "run", "start:prod"]
