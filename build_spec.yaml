@@ -20,9 +20,16 @@ steps:
     command: cd api && npm install
 
   - type: Command
-    name: "Create .env.test"
+    name: "Create .env.test and .env"
     failImmediatelyOnError: true
-    command: printf "JWT_SECRET=${TEST_JWT_SECRET}\nDATABASE_URL=${TEST_DATABASE_URL}\n" > api/.env.test
+    command: |
+      printf "JWT_SECRET=${TEST_JWT_SECRET}\nDATABASE_URL=${TEST_DATABASE_URL}\n" > api/.env.test
+      printf "JWT_SECRET=${TEST_JWT_SECRET}\nDATABASE_URL=${TEST_DATABASE_URL}\n" > api/.env
+
+  - type: Command
+    name: "Run migrations and seed on the test database"
+    failImmediatelyOnError: true
+    command: cd api && DATABASE_URL=${TEST_DATABASE_URL} npm run migrate:deploy && DATABASE_URL=${TEST_DATABASE_URL} npm run seed
 
   - type: Command
     name: "Run test suits"
@@ -37,7 +44,7 @@ steps:
   - type: Command
     name: "Build docker image"
     failImmediatelyOnError: true
-    command: docker build -t sa-saopaulo-1.ocir.io/grbcvhus1oua/portfolio/api .
+    command: docker build -t sa-saopaulo-1.ocir.io/grbcvhus1oua/portfolio/api api/.
 
 outputArtifacts:
   - name: api-docker-image
