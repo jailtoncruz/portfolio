@@ -13,7 +13,7 @@ steps:
     name: "Login Github"
     failImmediatelyOnError: true
     command: |
-      printf "//npm.pkg.github.com/:_authToken=${GITHUB_SECRET}" > ~/.npmrc
+      printf "//npm.pkg.github.com/:_authToken=${GITHUB_SECRET}\n@jailtoncruz:registry=https://npm.pkg.github.com/" > ~/.npmrc
       cp ~/.npmrc api/.
 
   - type: Command
