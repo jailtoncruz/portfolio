@@ -32,8 +32,9 @@ steps:
     name: "Run migrations and seed on the test database"
     failImmediatelyOnError: true
     command: |
-      cd api && DATABASE_URL=${TEST_DATABASE_URL} npm run migrate:deploy 
-      cd api && DATABASE_URL=${TEST_DATABASE_URL} npm run seed
+      cd api 
+      DATABASE_URL=${TEST_DATABASE_URL} npm run migrate:deploy 
+      DATABASE_URL=${TEST_DATABASE_URL} npm run seed
 
   - type: Command
     name: "Run test suits"
