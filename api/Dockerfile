@@ -25,4 +25,4 @@ COPY --chown=node:node --from=build /app/package.json .
 
 RUN npm install --omit-dev && npm cache clean --force
 
-CMD ["npm","run", "start:prod"]
+CMD npm run migrate:deploy && npm run start:prod
