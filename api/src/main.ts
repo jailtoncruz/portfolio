@@ -23,7 +23,7 @@ async function bootstrap() {
   app.use(helmet());
 
   app.enableCors({
-    origin: isProduction ? 'tomcruz.dev' : '*',
+    origin: isProduction ? 'https://tomcruz.dev' : '*',
   });
 
   await app.listen(3000);
