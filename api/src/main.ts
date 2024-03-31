@@ -4,6 +4,8 @@ import { DocumentBuilder, SwaggerModule } from '@nestjs/swagger';
 import helmet from 'helmet';
 import { AppModule } from './app/app.module';
 
+const isProduction = process.env.NODE_ENV === 'production';
+
 async function bootstrap() {
   const app = await NestFactory.create(AppModule);
 
@@ -20,12 +22,8 @@ async function bootstrap() {
   app.useGlobalPipes(new ValidationPipe());
   app.use(helmet());
 
-  const domains = ['https://tomcruz.dev'];
-  if (process.env.NODE_ENV !== 'production')
-    domains.push('http://localhost:3001');
-
   app.enableCors({
-    origin: domains,
+    origin: isProduction ? 'tomcruz.dev' : '*',
   });
 
   await app.listen(3000);
