@@ -21,7 +21,7 @@ function SideBar() {
   }
 
   return (
-    <div className="flex flex-col gap-2 items-center justify-between max-w-[300px] px-8">
+    <div className="flex flex-col flex-1 gap-2 items-center justify-between md:max-w-[300px] p-8 min-h-screen">
       <div className="flex flex-col items-center flex-1 justify-end">
         <img
           src={profilePic}
@@ -62,7 +62,7 @@ function SideBar() {
         <ShortDescriptionPt />
       )}
 
-      <div className="flex flex-row gap-4 mb-4">
+      <div className="flex flex-row gap-4">
         <ReactCountryFlag
           countryCode="BR"
           style={{
@@ -77,6 +77,7 @@ function SideBar() {
           }}
         />
       </div>
+      <p className="md:hidden text-xs ">Scroll down to see more!</p>
     </div>
   );
 }
@@ -84,7 +85,7 @@ function SideBar() {
 export function Home() {
   return (
     <GlobalContextProvider>
-      <div className="min-h-screen flex flex-row">
+      <div className="min-h-screen min-w-full flex flex-col md:flex-row">
         <SideBar />
         <Router />
       </div>

@@ -2,8 +2,8 @@ import ReactCountryFlag from "react-country-flag";
 
 export function AboutPt() {
   return (
-    <>
-      <p className="text-lg">
+    <div className="flex flex-col gap-2 md:text-lg">
+      <p>
         Com 8 anos de experiência em tecnologia e 4 anos de especialização como
         desenvolvedor de software, tenho um histórico comprovado no design e
         implementação de soluções robustas e escaláveis. Atualmente, trabalho
@@ -12,7 +12,7 @@ export function AboutPt() {
         comercial.
       </p>
 
-      <p className="text-lg">
+      <p>
         Embora meu cargo atual enfatize <strong>.NET</strong> e{" "}
         <strong>Angular</strong>, sou especialista em <strong>Node.js</strong> e{" "}
         <strong>React</strong>, utilizando anos de experiência para criar
@@ -21,7 +21,7 @@ export function AboutPt() {
         permitindo-me entregar soluções personalizadas para desafios complexos.
       </p>
 
-      <p className="text-lg">
+      <p>
         Fluente em{" "}
         <strong>
           Inglês <ReactCountryFlag countryCode="US" />
@@ -40,6 +40,6 @@ export function AboutPt() {
         andamento que integram frameworks avançados e IA para construir
         aplicações de próxima geração.
       </p>
-    </>
+    </div>
   );
 }

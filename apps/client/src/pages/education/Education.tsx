@@ -6,7 +6,9 @@ export function Education() {
   const { language } = useContext(GlobalContext);
   return (
     <div className="flex flex-col items-center py-8 text-white px-8">
-      <h1 className="font-bold text-2xl mb-12">{titles.education[language]}</h1>
+      <h1 className="font-bold md:text-2xl mb-12">
+        {titles.education[language]}
+      </h1>
     </div>
   );
 }
