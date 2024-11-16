@@ -1,2 +1,0 @@
-// URL publica de acesso a leitura do bucket
-export const URL_BASE_CDN = 'https://objectstorage.sa-saopaulo-1.oraclecloud.com/p/ARg9M_QVIXSqU9gxmtJBCunACUb8GPFIH8p-yPbSIkUHJ6-sLP33kFa2NKNQm0dg/n/grbcvhus1oua/b/cdn/o/';
