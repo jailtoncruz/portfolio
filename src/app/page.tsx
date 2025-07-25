@@ -467,7 +467,7 @@ export default function Home() {
                         <li className="flex items-start">
                           <span className="w-2 h-2 bg-teal-600 rounded-full mt-2 mr-3 flex-shrink-0"></span>
                           Managed the support team responsible for maintaining
-                          the company's tax platform, ensuring service
+                          the company&apos;s tax platform, ensuring service
                           continuity and minimal downtime.
                         </li>
                         <li className="flex items-start">
@@ -773,10 +773,12 @@ export default function Home() {
       >
         <div className="container mx-auto px-6">
           <div className="max-w-4xl mx-auto text-center">
-            <h2 className="text-4xl font-bold mb-8">Let's Work Together</h2>
+            <h2 className="text-4xl font-bold mb-8">
+              Let&apos;s Work Together
+            </h2>
             <p className="text-xl mb-12 text-blue-100">
-              Ready to bring your next project to life? Let's discuss how I can
-              help you build scalable, efficient solutions.
+              Ready to bring your next project to life? Let&apos;s discuss how I
+              can help you build scalable, efficient solutions.
             </p>
 
             <div className="flex flex-col md:flex-row justify-center items-center space-y-4 md:space-y-0 md:space-x-8 mb-12">
